@@ -1,73 +1,198 @@
-# Welcome to your Lovable project
+# Portfolio Website
 
-## Project info
+A modern, responsive portfolio website built with React, TypeScript, Vite, and Tailwind CSS. This project showcases your skills, projects, and professional background in a clean and interactive interface.
 
-**URL**: https://lovable.dev/projects/75aade4b-8eca-4bb8-9fed-2cb4af335866
+## 🚀 Getting Started
 
-## How can I edit this code?
+Follow these steps to set up the project on your local machine.
 
-There are several ways of editing your application.
+### Prerequisites
 
-**Use Lovable**
+Make sure you have **Node.js** installed. You can download it from [nodejs.org](https://nodejs.org/).
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/75aade4b-8eca-4bb8-9fed-2cb4af335866) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1.  **Clone the repository** (if you haven't already):
 
-**Use your preferred IDE**
+    ```bash
+    git clone <repository-url>
+    cd lavidata-main
+    ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2.  **Install dependencies**:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+    ```bash
+    npm install
+    ```
 
-Follow these steps:
+3.  **Start the development server**:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+    ```bash
+    npm run dev
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4.  **Open in your browser**:
+    The terminal will show a local URL (usually `http://localhost:5173`). Open this link to view your website.
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🛠️ Customization Guide
 
-**Edit a file directly in GitHub**
+This guide explains how to update the content of your portfolio. All the main content is located in the `src/components` folder.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 1. Personal Information (Hero Section)
 
-**Use GitHub Codespaces**
+To change your **Name**, **Title**, **Bio**, or **Social Media Links**:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Open `src/components/Hero.tsx`.
+- Look for the text inside the HTML tags (e.g., `<h1>`, `<p>`).
+- Update the links in the `href` attributes for GitHub, LinkedIn, and Email.
 
-## What technologies are used for this project?
+### 2. About Me
 
-This project is built with:
+To update your **About** description:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Open `src/components/About.tsx`.
+- Modify the text inside the `<p>` tags to reflect your background and journey.
 
-## How can I deploy this project?
+### 3. Skills
 
-Simply open [Lovable](https://lovable.dev/projects/75aade4b-8eca-4bb8-9fed-2cb4af335866) and click on Share -> Publish.
+To add or remove **Skills**:
 
-## Can I connect a custom domain to my Lovable project?
+- Open `src/components/Skills.tsx`.
+- Locate the `skillCategories` array at the top of the file.
+- You can add new categories or edit the `skills` list within each category.
+  ```javascript
+  {
+    icon: Code2,
+    title: "Programming Languages",
+    skills: ["Python", "C/C++", "SQL", "JavaScript"] // Add or remove items here
+  },
+  ```
 
-Yes, you can!
+### 4. Projects
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+To update your **Projects**:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Open `src/components/Projects.tsx`.
+- Locate the `projects` array at the top of the file.
+- Each project is an object where you can change the `title`, `description`, `tags`, `github` link, and `demo` link.
+  ```javascript
+  {
+    title: "Your Project Title",
+    description: "Brief description of what you built.",
+    tags: ["Tech 1", "Tech 2"],
+    github: "https://github.com/yourusername/project",
+    demo: "https://your-demo-link.com"
+  }
+  ```
+
+### 5. Contact Information
+
+To update your **Email**, **Phone**, or **Location**:
+
+- Open `src/components/Contact.tsx`.
+- Locate the `contactInfo` array at the top of the file.
+- Update the `value` and `href` fields.
+
+### 6. Resume
+
+To update your **Resume/CV**:
+
+- Place your new PDF file in the `public` folder.
+- Rename it to `resume.pdf` (or update the filename in `src/components/Hero.tsx` line 8).
+
+### 7. Images
+
+- Place new images in the `src/assets` folder.
+- Import them in the component where you want to use them:
+  ```javascript
+  import myImage from "@/assets/my-image.jpg";
+  ```
+- Use the imported variable in the `src` attribute of an `<img>` tag.
+
+### 8. Navigation Bar & Footer
+
+To update your **Name** or **Social Links** in the header and footer:
+
+- **Navbar**: Open `src/components/Navbar.tsx` and find the text inside the `<a>` tag (around line 78).
+- **Footer**: Open `src/components/Footer.tsx` and update the name, description, and social links.
+
+---
+
+## 📦 Deployment
+
+The easiest way to deploy this website is using **Vercel** or **Netlify**.
+
+1.  Push your code to a GitHub repository.
+2.  Log in to Vercel or Netlify.
+3.  Import your repository.
+4.  The platform will automatically detect the settings (Vite framework).
+5.  Click **Deploy**.
+
+Your website will be live in minutes!
+
+### Option 2: GitHub Pages (Free Hosting)
+
+If you prefer to host it directly on GitHub, follow these steps:
+
+1.  **Install the `gh-pages` package**:
+    Open your terminal and run:
+
+    ```bash
+    npm install gh-pages --save-dev
+    ```
+
+2.  **Update `package.json`**:
+    Open the `package.json` file and add the following lines.
+
+    At the top level (e.g., under `"name"`), add your homepage URL:
+
+    ```json
+    "homepage": "https://<your-github-username>.github.io/<repository-name>",
+    ```
+
+    _(Replace `<your-github-username>` and `<repository-name>` with your actual details)_
+
+    In the `"scripts"` section, add these two lines:
+
+    ```json
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+    ```
+
+3.  **Update `vite.config.ts`**:
+    Open `vite.config.ts` and add the `base` property inside `defineConfig`. It should look like this:
+
+    ```typescript
+    export default defineConfig(({ mode }) => ({
+      base: "/<repository-name>/", // Add this line!
+      server: {
+        // ... existing code
+    ```
+
+    _(Make sure to replace `<repository-name>` with the name of your GitHub repo, e.g., `/my-portfolio/`)_
+
+4.  **Deploy**:
+    Run the following command in your terminal:
+
+    ```bash
+    npm run deploy
+    ```
+
+5.  **Configure GitHub Settings**:
+    - Go to your repository on GitHub.
+    - Click on **Settings** > **Pages**.
+    - Under **Source**, ensure it is set to **Deploy from a branch**.
+    - Select the **gh-pages** branch and click **Save**.
+
+Your site should now be live at your homepage URL!
+
+---
+
+## 📂 Project Structure
+
+- `src/components`: Contains all the UI sections (Hero, About, Projects, etc.).
+- `src/assets`: Stores images and static assets.
+- `src/App.tsx`: The main entry point that assembles the page.
+- `public`: Static files like `resume.pdf` and `favicon`.
