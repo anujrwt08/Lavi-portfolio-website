@@ -188,6 +188,27 @@ If you prefer to host it directly on GitHub, follow these steps:
 
 Your site should now be live at your homepage URL!
 
+### Option 3: Manual Deployment (If Option 2 fails)
+
+If `npm run deploy` fails (common on Windows), use these manual steps:
+
+1.  **Build the project**:
+
+    ```bash
+    npm run build
+    ```
+
+2.  **Deploy manually**:
+    Run these commands one by one in your terminal:
+    ```bash
+    cd dist
+    git init
+    git add -A
+    git commit -m "deploy"
+    git push -f https://github.com/<your-username>/<repository-name>.git master:gh-pages
+    ```
+    _(Replace `<your-username>` and `<repository-name>` with your actual details)_
+
 ---
 
 ## 📂 Project Structure
